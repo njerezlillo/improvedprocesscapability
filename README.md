@@ -1,28 +1,28 @@
 # Improved process capability assessment through semiparametric piecewise modeling
 
-pwexp.R: Contains all the main functions related to the piecewise power-law model.
+pwexp.R: This contains all the main functions associated with the piecewise exponential model.
 
-capability.R: Contains all the main functions related to the piecewise power-law model.
+capability.R: Includes the implementation of the Process Capability Indices.
 
 ## Application:
 
-cod_1. R: Contains the script for the results of Bayesian inference using the Jeffreys prior.
+cod_1. R: Script displaying the results of methodologies applied to Rolling Bearing Data.
 
-cod_2. R: Contains the script for the results of Bayesian inference using the Jeffreys prior.
+cod_2. R: Script displaying the results of methodologies applied to Aluminum Electrolytic Capacitor Data.
 
-cod_3. R: Contains the script for the results of Bayesian inference using the Jeffreys prior.
+cod_3. R: Script displaying the results of methodologies applied to Polymer Granules Data.
 
 ## Simulation Study:
 
-sim_Cpk_i: Contains the programming for the figures in the simulation study. i = 1, 2, 3.
+sim_Cpk_i: Contains the code for generating the tables related to the Cpk index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
-sim_Cpm_i: Contains the programming for the figures in the simulation study. i = 1, 2, 3.
+sim_Cpm_i: Contains the code for generating the tables related to the Cpm index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
-sim_CpmA_i: Contains the programming for the figures in the simulation study. i = 1, 2, 3.
+sim_CpmA_i: Contains the code for generating the tables related to the Cpm^* index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
-sim_Cpmk_i: Contains the programming for the figures in the simulation study. i = 1, 2, 3.
+sim_Cpmk_i: Contains the code for generating the tables related to the Cpmk index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
-sim_tau_i: Contains the programming for the figures in the simulation study. i = 1, 2, 3.
+sim_tau_i: Contains the code for generating the tables related to the change points in the i-th scenario of the simulation study. i = 1, 2, 3.
 
 ## Reference
 Soares V, Jerez-Lillo N, Ferreira P, Ramos P. Improved process capability assessment through semiparametric piecewise modeling.
