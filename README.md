@@ -18,7 +18,7 @@ sim_Cpk_i: Contains the code for generating the tables related to the Cpk index 
 
 sim_Cpm_i: Contains the code for generating the tables related to the Cpm index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
-sim_CpmA_i: Contains the code for generating the tables related to the Cpm^* index in the i-th scenario of the simulation study. i = 1, 2, 3.
+sim_CpmA_i: Contains the code for generating the tables related to the Cpm* index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
 sim_Cpmk_i: Contains the code for generating the tables related to the Cpmk index in the i-th scenario of the simulation study. i = 1, 2, 3.
 
