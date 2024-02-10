@@ -2,7 +2,7 @@
 
 pwexp.R: This contains all the main functions associated with the piecewise exponential model.
 
-capability.R: Includes the implementation of the Process Capability Indices.
+capability.R: Includes the implementation of the process capability indices.
 
 ## Application:
 
