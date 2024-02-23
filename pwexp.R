@@ -224,6 +224,17 @@ profile_loglik_pwexp <- function(p, x)
   return (l)
 }
 
+# profile_log_likelihood (bias corrected)
+profile_loglik_pwexp_bc <- function(p, x)
+{
+  theta <- mle_pwexp_bc(x, p)
+  logC <- log(auxiliar_pwexp(p, theta))[-(length(p) + 1)]
+  logdata <- sum_logdata_pwexp(x, p)
+  nj <- n_each_interval(x, p)
+  l <- sum(nj * (log(theta) + logC)) - sum(theta * logdata)
+  return (l)
+}
+
 # profile_log_cens_likelihood
 profile_loglik_cens_pwexp <- function(p, x)
 {
@@ -238,7 +249,15 @@ profile_loglik_cens_pwexp <- function(p, x)
   return (l)
 }
 
-diff_c <- function(x) c(x[1] - x[2], x[2] - x[3], x[3] - x[4])
+diff_c <- function(x) {
+  if (length(x) == 3) {
+    c(x[1] - x[2], x[2] - x[3])
+  } else if (length(x) == 4) {
+    c(x[1] - x[2], x[2] - x[3], x[3] - x[4])
+  } else {
+    c(x[1] - x[2], x[2] - x[3], x[3] - x[4], x[4] - x[5])
+  }
+}
 
 # MLE BC
 mle_pwexp_bc <- function (x, p)
@@ -261,22 +280,61 @@ mle_pwexp_bc <- function (x, p)
   alpha[k] <- nj[k] * sum((x[index[[k]]] - p[k])) ^ (-1)
   
   #BC
-  
-  h_ij <- diag(-sum(nj)*diff_c(auxiliar_pwexp(p, alpha)) / alpha^2)
-  h_ij1 <- diag(c(2*sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[1] / alpha[1]^3, 0, 0))
-  h_ij2 <- diag(c(0, 2*sum(nj)*diff_c(auxiliar_pwexp(p, alpha))[2] / alpha[2]^3, 0))
-  h_ij3 <- diag(c(0, 0, 2*sum(nj)*diff_c(auxiliar_pwexp(p, alpha))[3] / alpha[3]^3))
-  
-  f_temp <- function(x) -sum(nj)*diff_c(auxiliar_pwexp(p, x)) / x^2
-  temp <- jacobian(f_temp, alpha)
-  h_ij_1 <- diag(temp[,1])
-  h_ij_2 <- diag(temp[,2])
-  h_ij_3 <- diag(temp[,3])
-  
-  A1 <- h_ij_1 - 0.5 * h_ij1
-  A2 <- h_ij_2 - 0.5 * h_ij2
-  A3 <- h_ij_3 - 0.5 * h_ij3
-  A <- cbind(A1, A2, A3)
+  if (k == 2) {
+    
+    h_ij <- diag(-sum(nj) * diff_c(auxiliar_pwexp(p, alpha)) / alpha^2)
+    h_ij1 <- diag(c(2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[1] / alpha[1]^3, 0))
+    h_ij2 <- diag(c(0, 2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[2] / alpha[2]^3))
+
+    f_temp <- function(x) -sum(nj) * diff_c(auxiliar_pwexp(p, x)) / x^2
+    temp <- jacobian(f_temp, alpha)
+    h_ij_1 <- diag(temp[,1])
+    h_ij_2 <- diag(temp[,2])
+
+    A1 <- h_ij_1 - 0.5 * h_ij1
+    A2 <- h_ij_2 - 0.5 * h_ij2
+    A <- cbind(A1, A2)
+    
+  } else if (k == 3) {
+    
+    h_ij <- diag(-sum(nj) * diff_c(auxiliar_pwexp(p, alpha)) / alpha^2)
+    h_ij1 <- diag(c(2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[1] / alpha[1]^3, 0, 0))
+    h_ij2 <- diag(c(0, 2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[2] / alpha[2]^3, 0))
+    h_ij3 <- diag(c(0, 0, 2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[3] / alpha[3]^3))
+    
+    f_temp <- function(x) -sum(nj) * diff_c(auxiliar_pwexp(p, x)) / x^2
+    temp <- jacobian(f_temp, alpha)
+    h_ij_1 <- diag(temp[,1])
+    h_ij_2 <- diag(temp[,2])
+    h_ij_3 <- diag(temp[,3])
+    
+    A1 <- h_ij_1 - 0.5 * h_ij1
+    A2 <- h_ij_2 - 0.5 * h_ij2
+    A3 <- h_ij_3 - 0.5 * h_ij3
+    A <- cbind(A1, A2, A3)
+    
+  } else{
+    
+    h_ij <- diag(-sum(nj) * diff_c(auxiliar_pwexp(p, alpha)) / alpha^2)
+    h_ij1 <- diag(c(2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[1] / alpha[1]^3, 0, 0, 0))
+    h_ij2 <- diag(c(0, 2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[2] / alpha[2]^3, 0, 0))
+    h_ij3 <- diag(c(0, 0, 2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[3] / alpha[3]^3, 0))
+    h_ij4 <- diag(c(0, 0, 0, 2 * sum(nj) * diff_c(auxiliar_pwexp(p, alpha))[4] / alpha[4]^3))
+    
+    f_temp <- function(x) -sum(nj) * diff_c(auxiliar_pwexp(p, x)) / x^2
+    temp <- jacobian(f_temp, alpha)
+    h_ij_1 <- diag(temp[,1])
+    h_ij_2 <- diag(temp[,2])
+    h_ij_3 <- diag(temp[,3])
+    h_ij_4 <- diag(temp[,4])
+    
+    A1 <- h_ij_1 - 0.5 * h_ij1
+    A2 <- h_ij_2 - 0.5 * h_ij2
+    A3 <- h_ij_3 - 0.5 * h_ij3
+    A4 <- h_ij_4 - 0.5 * h_ij4
+    A <- cbind(A1, A2, A3, A4)
+    
+  }
   
   Bias <- c(solve(h_ij) %*% A %*% fBasics::vec(solve(h_ij)))
   alpha <- alpha - Bias

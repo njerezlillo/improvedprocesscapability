@@ -1,3 +1,20 @@
+
+#rpwexp <- function(n, p, alpha)
+#{
+#  q <- Vectorize(function(x) qpwexp(x, p, alpha), "x")
+#  while(TRUE)
+#  {
+#    x <- q(runif(n))
+#    nj <- n_each_interval(x, p)
+#    if (any(nj < 1)) {
+#      x[1] <- p[2] - 0.1
+#      break
+#    }
+#  }
+  
+#  return (x)
+#}
+
 md_Cpk <- function (mod, cov, p, LSL, USL) {
   myfun <- function (z) {
     Up_aux <- qpwexp(0.99865, p, z)
