@@ -24,7 +24,7 @@ sim_Cpmk: This contains the code for generating the tables related to the Cpmk i
 
 sim_alpha: This contains the code for generating the tables related to the parameters of the PE model.
 
-sim_tau_i: This contains the code for generating the tables related to the change points in the i-th scenario, i = 1, 2, 3.
+sim_tau_i: This contains the code for generating the tables related to the change points in the i-th scenario, for i = 1, 2, 3.
 
 ## Reference
 Soares V, Jerez-Lillo N, Ferreira P, Ramos P. Improved process capability assessment through semiparametric piecewise modeling.
