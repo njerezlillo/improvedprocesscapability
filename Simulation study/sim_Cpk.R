@@ -3,7 +3,7 @@ library(xtable)
 library(numDeriv)
 library(parallel)
 library(doParallel)
-source("/Users/nixonjerez/Library/CloudStorage/GoogleDrive-njerezlillo@gmail.com/Mi unidad/Manuscritos/Unification of piecewise models/pwexp.R")
+source("pwexp.R")
 source("capability.R")
 
 Table_Cpk <- function(n, p, alpha, USL, LSL) {
