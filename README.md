@@ -14,25 +14,25 @@ cod_3. R: This displays the results of methodologies applied to Polymer Granules
 
 ## Simulation Study:
 
-sim_Cpk: This contains the code for generating the tables related to the Cpk index, using the bias-corrected MLEs.
+sim_Cpk: Script for generating the tables related to the Cpk index, using the bias-corrected MLEs.
 
-sim_Cpm: This contains the code for generating the tables related to the Cpm index, using the bias-corrected MLEs.
+sim_Cpm: Script for generating the tables related to the Cpm index, using the bias-corrected MLEs.
 
-sim_CpmA: This contains the code for generating the tables related to the Cpm* index, using the bias-corrected MLEs.
+sim_CpmA: Script for generating the tables related to the Cpm* index, using the bias-corrected MLEs.
 
-sim_Cpmk: This contains the code for generating the tables related to the Cpmk index, using the bias-corrected MLEs.
+sim_Cpmk: Script for generating the tables related to the Cpmk index, using the bias-corrected MLEs.
 
-sim_alpha: This contains the code for generating the tables related to the parameters of the PE model.
+sim_alpha: Script for generating the tables related to the parameters of the PE model.
 
-sim_tau_i: This contains the code for generating the tables related to the change points in the i-th scenario.
+sim_tau_i: Script for generating the tables related to the change points in the i-th scenario.
 
-sim_Cpk_appendix: This contains the code for generating the tables related to the Cpk index, using the traditional MLEs.
+sim_Cpk_appendix: Script for generating the tables related to the Cpk index, using the traditional MLEs.
 
-sim_Cpm_appendix: This contains the code for generating the tables related to the Cpm index, using the traditional MLEs.
+sim_Cpm_appendix: Script for generating the tables related to the Cpm index, using the traditional MLEs.
 
-sim_CpmA_appendix: This contains the code for generating the tables related to the Cpm* index, using the traditional MLEs.
+sim_CpmA_appendix: Script for generating the tables related to the Cpm* index, using the traditional MLEs.
 
-sim_Cpmk_appendix: This contains the code for generating the tables related to the Cpmk index, using the traditional MLEs.
+sim_Cpmk_appendix: Script for generating the tables related to the Cpmk index, using the traditional MLEs.
 
 ## Reference
 Soares V, Jerez-Lillo N, Ferreira P, Ramos P. Improved process capability assessment through semiparametric piecewise modeling.
