@@ -35,4 +35,4 @@ sim_CpmA_appendix: Script for generating the tables related to the Cpm* index, u
 sim_Cpmk_appendix: Script for generating the tables related to the Cpmk index, using the traditional MLEs.
 
 ## Reference
-Soares V, Jerez-Lillo N, Ferreira P, Ramos P. Improved process capability assessment through semiparametric piecewise modeling.
+Soares V, Jerez-Lillo N, Ferreira P, Ramos P. Improved process capability assessment through semiparametric piecewise modeling. J Stat Comput Simul, 1–30. https://doi.org/10.1080/00949655.2024.2366364
