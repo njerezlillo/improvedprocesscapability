@@ -37,5 +37,5 @@ sim_Cpmk_appendix: Script for generating the tables related to the Cpmk index, u
 ## Reference
 
 [**Improved process capability assessment through semiparametric piecewise modeling**](https://doi.org/10.1080/00949655.2024.2366364)  
-*Soares V., Jerez-Lillo N., Ferreira P. H., Ramos P. L.*
+*Soares V., Jerez-Lillo N., Ferreira P. H., Ramos P. L.*  
 Journal of Statistical Computation and Simulation, 94, 14 (2024).
